@@ -1,61 +1,41 @@
 package com.example.demo_user.entities;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
+@Data
 @Entity
 @Table(name = "user_name", schema = "quanlywebthoitrang", catalog = "")
 public class UserNameEntity {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Basic
+    @Column(name = "usename")
     private String usename;
+    @Basic
+    @Column(name = "password")
     private String password;
+    @Basic
+    @Column(name = "email")
     private String email;
 
     public static List<UserNameEntity> getAll() {
         return null;
     }
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getId() {
-        return id;
+    public void getUsename(String username) {
+
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void getPassword(String password) {
     }
 
-    @Basic
-    @Column(name = "usename")
-    public String getUsename(String username) {
-        return usename;
+    public void getEmail(String email) {
     }
-
-    public void setUsename(String usename) {
-        this.usename = usename;
-    }
-
-    @Basic
-    @Column(name = "password")
-    public String getPassword(String password) {
-        return this.password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Basic
-    @Column(name = "email")
-    public String getEmail(String email) {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
 }
+
